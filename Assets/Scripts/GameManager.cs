@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         {
             actualState = gameState.Pause;
             Time.timeScale = 0f;
-            gameState.
+            
         }
     }
 }

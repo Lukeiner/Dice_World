@@ -5,7 +5,13 @@ public class DiceRotation : MonoBehaviour
 {
     [SerializeField] private float rotateSpeed = 16f;
     private Coroutine currentRollCoroutine;
+    private Dice diceScript;
 
+
+    private void Awake()
+    {
+        diceScript = GetComponent<Dice>();
+    }
     public void Roll(Vector3 rollAxis)
     {
         if (currentRollCoroutine != null)
@@ -29,5 +35,10 @@ public class DiceRotation : MonoBehaviour
 
         // Asignar la rotación objetivo final de forma limpia sin pasar por Euler
         transform.rotation = targetRotation;
+
+        if (diceScript != null)
+        {
+            diceScript.UpdateTopFaceUI();
+        }
     }
 }
